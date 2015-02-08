@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <textarea id='less'>
+.infotab
+{
+    nav.left, nav.right
+    {
+        font-size: 14px;
+        list-style: none;
+        ul
+        {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            list-style: none;
+
+            line-height: normal;
+            li
+            {
+                background: #f2f2f2;
+                border: 1px solid #dadada;
+                width: auto;
+                height: 16px;
+                padding: 4px 8px 4px 8px;
+                text-align: center;
+                &amp;:first-child { border-radius: 5px 0 0 5px;}
+                &amp;:last-child { border-radius: 0 5px 5px 0;}
+            }
+
+
+        }
+
+    }
+    nav.left  
+    {
+        ul
+        {
+            width: auto;
+            li
+            {
+                float: left;
+                a
+                {
+                    font: 14px Arial;
+                    color: #000;
+                }
+            }
+            li:hover, .active
+            {
+                background: #ffec9f;
+                border: 1px solid #c8b276;
+            }
+        }
+    }
+    nav.right
+    {
+        float: right;
+        //margin-left: 23%;
+        margin-bottom: 0;
+        ul
+        {
+            width: 166px;
+            li
+            {
+                float: left;
+                a
+                {
+                    font: 14px Arial;
+                    line-height: normal;
+                    color: #000;
+                }                
+            }
+            li:hover, .active
+            {
+                background: #ffec9f;
+                border: 1px solid #c8b276;            
+            }
+        }
+    }
+
+    .tab-nav
+    {
+        margin: 10px 0;
+        .tab-nav-cap img
+        {
+            margin-right: 5px;            
+        }
+    }
+    .cnt
+    {
+        /*width: 60%;*/
+        padding: 0;
+        float: left;
+        height: 440px;
+    }
+    .accnt
+    {
+        padding: 14px 0px 0px 5px;
+        width: 100%;
+    }   
+}
+    </textarea>
+    <div id='message'></div>
+    <div id='gui' class='less'>
+    </div>
+    <script src="lessfactor.js"></script>
+    <script>
+      var r = parseLess(document.getElementById('less').value);
+      var gui = document.getElementById('gui');
+      r.render(gui);
+      //for(var x in r) renderLess(r[x], gui);
+      init(gui, r);
+    </script>
+  </body>
+</html>
